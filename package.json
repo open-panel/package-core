@@ -1,0 +1,63 @@
+{
+  "name": "@open-panel/core",
+  "version": "0.1.0",
+  "description": "Daemon-internal glue for OpenPanel: a structured Logger with secret redaction, ProfileRuntime (wires button presses to actions and page renders to devices), and the button/page/calibration image generators.",
+  "type": "module",
+  "license": "MIT",
+  "author": "OpenPanel contributors",
+  "homepage": "https://github.com/open-panel/package-core#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/open-panel/package-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/open-panel/package-core/issues"
+  },
+  "keywords": [
+    "openpanel",
+    "macropad",
+    "stream-deck",
+    "logger",
+    "daemon"
+  ],
+  "sideEffects": false,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "@open-panel/action-engine": "^0.1.0",
+    "@open-panel/device-sdk": "^0.1.0",
+    "@open-panel/profile-engine": "^0.1.0",
+    "@open-panel/shared": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
